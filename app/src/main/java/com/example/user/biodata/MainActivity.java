@@ -4,61 +4,128 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.RadioButton;
+import android.widget.Spinner;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
 public class MainActivity extends AppCompatActivity {
     ToggleButton toggleButtonOnOf;
-    CheckBox checkBoxEnglish, checkBoxIndonesia;
+    CheckBox checkBoxEnglish, checkBoxIndonesia, checkBoxBugis, checkBoxMakassar;
+    Spinner spinnerDate, spinnerMonth, spinnerYear;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Toast.makeText(this, "On Create", Toast.LENGTH_SHORT).show();
-        Log.i("MainActivity", "OnCreate");
-
         toggleButtonOnOf = (ToggleButton) findViewById(R.id.btn_off);
         checkBoxEnglish = (CheckBox) findViewById(R.id.cBtn_english);
         checkBoxIndonesia = (CheckBox) findViewById(R.id.cBtn_Indonesia);
+        checkBoxBugis = (CheckBox) findViewById(R.id.cBtn_Bugis);
+        checkBoxMakassar = (CheckBox) findViewById(R.id.cBtn_Makassar);
+
+        spinnerDate = (Spinner) findViewById(R.id.spin_date);
+        spinnerMonth = (Spinner) findViewById(R.id.spin_month);
+        spinnerYear = (Spinner) findViewById(R.id.spin_year);
+
+        final ArrayAdapter<CharSequence> spinnerDateAdapter = ArrayAdapter.createFromResource(this, R.array.date, android.R.layout.simple_spinner_item);
+        final ArrayAdapter<CharSequence> spinnerMonthAdapter = ArrayAdapter.createFromResource(this, R.array.month, android.R.layout.simple_spinner_item);
+        final ArrayAdapter<CharSequence> spinnerYearAdapter = ArrayAdapter.createFromResource(this, R.array.year, android.R.layout.simple_spinner_item);
+
+        spinnerDateAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerMonthAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerYearAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        spinnerDate.setAdapter(spinnerDateAdapter);
+        spinnerMonth.setAdapter(spinnerMonthAdapter);
+        spinnerYear.setAdapter(spinnerYearAdapter);
+
+        spinnerDate.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                Toast.makeText(MainActivity.this, spinnerDateAdapter.getItem(i), Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+                Toast.makeText(MainActivity.this, "Nothing Select", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        spinnerMonth.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                Toast.makeText(MainActivity.this, spinnerMonthAdapter.getItem(i), Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+                Toast.makeText(MainActivity.this, "Nothing Select", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        spinnerYear.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                Toast.makeText(MainActivity.this, spinnerYearAdapter.getItem(i), Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+                Toast.makeText(MainActivity.this, "Nothing Select", Toast.LENGTH_SHORT).show();
+            }
+        });
+
 
         /**********            Toggle               **********/
         toggleButtonOnOf.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            String onOff=null;
+            String onOff = null;
+
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
-                if(isChecked){
+                if (isChecked) {
                     onOff = "ON";
-                }else{
+                } else {
                     onOff = "OF";
                 }
                 Toast.makeText(MainActivity.this, onOff, Toast.LENGTH_SHORT).show();
             }
         });
 
-
-
-
     }
 
     public void onClickBahasa(View view){
         checkBoxEnglish.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+            public void onCheckedChanged(CompoundButton compoundButton, boolean status) {
                 Toast.makeText(MainActivity.this, "English", Toast.LENGTH_SHORT).show();
             }
         });
 
         checkBoxIndonesia.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+            public void onCheckedChanged(CompoundButton compoundButton, boolean status) {
                 Toast.makeText(MainActivity.this, "Indonesia", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        checkBoxBugis.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean status) {
+                Toast.makeText(MainActivity.this, "Bugis", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        checkBoxMakassar.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean status) {
+                Toast.makeText(MainActivity.this, "Makassar", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -99,48 +166,6 @@ public class MainActivity extends AppCompatActivity {
         });
         exitAlert.setCancelable(false);
         exitAlert.show();
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-        Toast.makeText(this, "On Start", Toast.LENGTH_SHORT).show();
-        Log.i("MainActivity", "OnStart");
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        Toast.makeText(this, "On Pause", Toast.LENGTH_SHORT).show();
-        Log.i("MainActivity", "OnPause");
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        Toast.makeText(this, "On Resume", Toast.LENGTH_SHORT).show();
-        Log.i("MainActivity", "OnResume");
-    }
-
-    @Override
-    protected void onRestart() {
-        super.onRestart();
-        Toast.makeText(this, "On Restart", Toast.LENGTH_SHORT).show();
-        Log.i("MainActivity", "OnRestart");
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-        Toast.makeText(this, "On Stop", Toast.LENGTH_SHORT).show();
-        Log.i("MainActivity", "OnStop");
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        Toast.makeText(this, "On Destroy", Toast.LENGTH_SHORT).show();
-        Log.i("MainActivity", "OnDestroy");
     }
 
 }

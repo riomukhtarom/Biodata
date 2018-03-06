@@ -7,11 +7,11 @@
     <EditText
         android:id="@+id/et_nama"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_weight="1"
         android:ems="10"
         android:inputType="textPersonName"
-        android:hint="Masukkaan Nama"/>
+        android:hint="Masukkan Nama"/>
 
 
     <EditText
@@ -29,12 +29,12 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:ems="10"
-        android:inputType="number"
+        android:inputType="text"
         android:hint="Tempat Lahir" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_weight="1"
         android:orientation="horizontal">
 
@@ -64,7 +64,7 @@
     <ToggleButton
         android:id="@+id/btn_off"
         android:layout_width="wrap_content"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_weight="1"
         android:layout_gravity="center_horizontal"
         android:text="Anu"/>
@@ -73,28 +73,58 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:orientation="horizontal">
+        android:orientation="vertical">
 
-        <CheckBox
-            android:id="@+id/cBtn_english"
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="English"
-            android:onClick="onClickBahasa"/>
+            android:text="Bahasa yang dikuasai"/>
 
-        <CheckBox
-            android:id="@+id/cBtn_Indonesia"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Indonesia"
-            android:onClick="onClickBahasa"/>
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:id="@+id/cBtn_english"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="onClickBahasa"
+                android:text="English" />
+
+            <CheckBox
+                android:id="@+id/cBtn_Makassar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="onClickBahasa"
+                android:text="Makassar" />
+
+            <CheckBox
+                android:id="@+id/cBtn_Indonesia"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="onClickBahasa"
+                android:text="Indonesia" />
+
+            <CheckBox
+                android:id="@+id/cBtn_Bugis"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="onClickBahasa"
+                android:text="Bugis" />
+        </LinearLayout>
+
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_weight="1"
         android:orientation="vertical">
 
@@ -130,7 +160,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_weight="2"
         android:orientation="horizontal">
 
