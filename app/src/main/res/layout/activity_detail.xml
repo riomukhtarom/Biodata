@@ -8,29 +8,34 @@
         android:id="@+id/textView_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        android:padding="16dp"/>
 
     <TextView
         android:id="@+id/textView_birthday"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        android:padding="16dp" />
 
     <TextView
         android:id="@+id/textView_age"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        android:padding="16dp"/>
 
     <TextView
         android:id="@+id/textView_gender"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        android:padding="16dp" />
 
     <TextView
         android:id="@+id/textView_languange"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        android:padding="16dp" />
 </LinearLayout>

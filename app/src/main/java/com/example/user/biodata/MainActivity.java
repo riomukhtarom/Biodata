@@ -158,15 +158,16 @@ public class MainActivity extends AppCompatActivity {
             case R.id.rBtn_male:
                 if(checked){
                     Toast.makeText(MainActivity.this, "male", Toast.LENGTH_SHORT).show();
+                    gender = "Laki-laki";
                 }
                 break;
             case R.id.rBtn_female:
                 if(checked){
                     Toast.makeText(MainActivity.this, "female", Toast.LENGTH_SHORT).show();
+                    gender = "Perempuan";
                 }
                 break;
         }
-        gender = ((RadioButton)findViewById(radioGroupGender.getCheckedRadioButtonId())).getText().toString();
     }
 
     /**********            Exit               **********/
